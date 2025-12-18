@@ -75,4 +75,14 @@ public class PlayerStats : MonoBehaviour
             return false; // Falha, está cansado demais
         }
     }
+    
+    public void Curar(float quantidade)
+        {
+            vidaAtual += quantidade;
+    
+            // Garante que a vida não ultrapasse o máximo (não queremos 150/100 de vida)
+            vidaAtual = Mathf.Clamp(vidaAtual, 0, vidaMaxima);
+    
+            Debug.Log("Curado! Vida Atual: " + vidaAtual);
+        }
 }
